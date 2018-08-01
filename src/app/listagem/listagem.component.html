@@ -1,0 +1,12 @@
+<header class="jumbotron">
+  <h1 class="text-center">{{titulo}}</h1>
+</header>
+<main class="container">
+  <div class="row">
+
+    <card *ngFor="let foto of listaFotos" [foto]="foto" class="col-md-4 mb-4">
+      <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
+    </card>
+    
+  </div>
+</main>

@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "caelumpic",
       "schematics": {},
       "architect": {
         "build": {
@@ -124,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "ng7589"
+  "defaultProject": "ng7589",
+  "schematics": {
+    "@schematics/angular:component": {
+      "inlineStyle": true
+    }
+  }
 }
