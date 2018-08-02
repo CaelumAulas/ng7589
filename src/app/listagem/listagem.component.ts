@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Foto } from '../foto/foto.model';
+import { FotoService } from '../foto/foto.service';
 
 @Component({
   selector: 'caelumpic-listagem',
@@ -11,9 +12,9 @@ export class ListagemComponent implements OnInit {
   titulo = "CaelumPic"
   listaFotos
 
-  constructor(conexaoApi: HttpClient){
+  constructor(private servico: FotoService){
 
-    conexaoApi.get('http://localhost:3000/v1/fotos')
+    this.servico.listar()
               .subscribe(
                 (fotosApi) => {
                   this.listaFotos = fotosApi
@@ -22,7 +23,10 @@ export class ListagemComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit(){}
+
+  removeCard(foto: Foto){
+    console.log(`Foto ${foto.titulo} removida com sucesso!`); 
   }
 
 }

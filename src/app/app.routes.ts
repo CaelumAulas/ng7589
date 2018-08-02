@@ -4,7 +4,8 @@ import { ListagemComponent } from "./listagem/listagem.component";
 
 const rotasApp:Routes = [
     {path: '', component: ListagemComponent},
-    {path: 'cadastro', component: CadastroComponent}
+    {path: 'cadastro', component: CadastroComponent},
+    {path: '**', redirectTo: ''}
 ]
 
 export const ModuloRoteador = RouterModule.forRoot(rotasApp)

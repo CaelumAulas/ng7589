@@ -9,6 +9,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { ModuloRoteador } from './app.routes';
 
+import { FormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,7 @@ import { ModuloRoteador } from './app.routes';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     FotoModule,
     CardModule,
     ModuloRoteador
