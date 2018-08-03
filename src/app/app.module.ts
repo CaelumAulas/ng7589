@@ -10,12 +10,14 @@ import { ListagemComponent } from './listagem/listagem.component';
 import { ModuloRoteador } from './app.routes';
 
 import { FormsModule } from "@angular/forms";
+import { MensagemComponent } from './mensagem/mensagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroComponent,
-    ListagemComponent
+    ListagemComponent,
+    MensagemComponent
   ],
   imports: [
     BrowserModule,
