@@ -10,6 +10,6 @@ export enum MensagemTipo {
 }
 
 export class Mensagem {
-    tipo: MensagemTipo 
+    tipo: MensagemTipo;
     conteudo = '';
 }

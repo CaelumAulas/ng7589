@@ -13,15 +13,17 @@
   </div>
 
   <div class="row">
-    <form class="col-md-5 offset-md-2 mb-4" (ngSubmit)="salvar()">
+    <form #formCadastro="ngForm" class="col-md-5 offset-md-2 mb-4" (ngSubmit)="salvar(formCadastro)">
       <div class="form-group">
         <label for="">Titulo</label>
-        <input [(ngModel)]="foto.titulo" name="titulo" type="text" class="form-control">
+        <input #inputTitulo="ngModel" required [(ngModel)]="foto.titulo" name="titulo" type="text" class="form-control">
+        <caelumpic-mensagem *ngIf="inputTitulo.invalid && inputTitulo.touched" tipo="danger" conteudo="Titulo obrigatório"></caelumpic-mensagem>
       </div>
 
       <div class="form-group">
         <label for="">URL</label>
-        <input [(ngModel)]="foto.url" name="url" type="text" class="form-control">
+        <input #inputUrl="ngModel" required [(ngModel)]="foto.url" name="url" type="text" class="form-control">
+        <caelumpic-mensagem *ngIf="inputUrl.invalid && inputUrl.touched" tipo="danger" conteudo="URL obrigatória"></caelumpic-mensagem>
       </div>
 
       <div class="form-group">
@@ -33,7 +35,7 @@
         Listagem
       </a>
 
-      <button class="btn btn-primary">
+      <button [disabled]="formCadastro.invalid" class="btn btn-primary">
         Salvar
       </button>
     </form>

@@ -4,6 +4,7 @@ import { FotoService } from '../foto/foto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListagemComponent } from '../listagem/listagem.component';
 import { Mensagem, MensagemTipo } from '../mensagem/mensagem.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'caelumpic-cadastro',
@@ -36,7 +37,7 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  salvar(){
+  salvar(formCadastro: NgForm){
 
     if(this.foto._id){
 
@@ -49,7 +50,7 @@ export class CadastroComponent implements OnInit {
 
               setTimeout(
                 () => this.roteador.navigate([ListagemComponent])
-                ,1000
+                ,3000
               )
               
 
@@ -65,7 +66,8 @@ export class CadastroComponent implements OnInit {
               this.mensagem.conteudo = `${this.foto.titulo} salva com sucesso!`
               this.mensagem.tipo = MensagemTipo.success
 
-              this.foto = new Foto()
+              formCadastro.reset()
+            
             }
             ,(erro) => console.log(erro)
             ,() => console.log(this.foto)
