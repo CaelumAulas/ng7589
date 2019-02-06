@@ -10,7 +10,7 @@ import { FotoService } from '../foto/foto.service';
 export class ListagemComponent implements OnInit {
 
   titulo = "CaelumPic"
-  listaFotos: Foto[]
+  listaFotos: Foto[] = []
 
   constructor(private servico: FotoService){
 

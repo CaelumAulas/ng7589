@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { FotoModule } from "./foto.module";
 import { Foto } from "./foto.model";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
     providedIn: FotoModule
@@ -17,8 +18,14 @@ export class FotoService {
         return this.conexaoApi.get<Foto[]>(this.url)
     }
 
-    cadastrar(foto: Foto): Observable<string>{
-        return this.conexaoApi.post<string>(this.url,foto)
+    cadastrar(foto: Foto): Observable<Object>{
+        return this.conexaoApi
+                    .post(this.url,foto)
+                    .pipe(
+                        map(
+                            respostaApi => ({conteudo: 'teste', tipo: 'success', resposta: respostaApi})
+                        )
+                    )
     }
 
     deletar(foto: Foto): Observable<Object> {
